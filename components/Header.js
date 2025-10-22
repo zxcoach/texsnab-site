@@ -1,5 +1,8 @@
 // components/Header.js
 
+"use client"; // 1. Делаем компонент клиентским
+
+import { useState } from "react"; // 2. Импортируем 'useState'
 import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -21,16 +24,12 @@ const ChevronDownIcon = () => (
   </svg>
 );
 
-// 1. Header НЕ нужно делать "use client",
-//    мы решим всё через CSS (Tailwind)
 export default function Header({ dictionary, lang }) {
+  // 3. Создаем состояние для меню (по умолчанию 'false' = закрыто)
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
   return (
     <header className="bg-white border-b border-gray-200 shadow-sm">
-      {/* 2. ИСПРАВЛЕНИЕ "КРИВИЗНЫ":
-          flex-col (по умолчанию - мобилка, всё в столбик)
-          lg:flex-row (на десктопе - в ряд)
-          lg:justify-between (на десктопе - раскидать по краям)
-      */}
       <nav className="container mx-auto px-4 py-4 flex flex-col lg:flex-row lg:justify-between items-center gap-4">
         {/* Блок 1: Логотип */}
         <div className="flex-shrink-0">
@@ -42,46 +41,60 @@ export default function Header({ dictionary, lang }) {
           </Link>
         </div>
 
-        {/* Блок 2: Меню и Контакты 
-            Тоже стакаются (flex-col) и выстраиваются в ряд (lg:flex-row)
-        */}
+        {/* Блок 2: Меню и Контакты */}
         <div className="flex flex-col lg:flex-row items-center gap-x-6 gap-y-4">
           {/* Навигация */}
           <div className="flex items-center space-x-6">
-            {/* ВЫПАДАЮЩЕЕ МЕНЮ "УСЛУГИ" (с фиксом хитбокса) */}
-            <div className="relative group py-2 my-[-0.5rem]">
-              <Link
-                href={`/${lang}/services`}
+            {/* ВЫПАДАЮЩЕЕ МЕНЮ "УСЛУГИ"
+                4. Управляем наведением (onMouse...) для десктопа
+            */}
+            <div
+              className="relative py-2 my-[-0.5rem]"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              {/* 5. Управляем нажатием (onClick) для мобилки */}
+              <button
+                type="button"
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
                 className="text-lg text-gray-600 hover:text-black font-medium flex items-center"
               >
                 {dictionary.services}
                 <ChevronDownIcon />
-              </Link>
+              </button>
 
-              {/* 3. ИСПРАВЛЕНИЕ "НАЖАТИЯ":
-                  Добавляем 'focus-within:block'.
-                  Меню покажется при hover (group-hover)
-                  ИЛИ при "нажатии" (focus-within)
-              */}
-              <div
-                className="absolute hidden group-hover:block focus-within:block 
-                           bg-white shadow-lg rounded-md 
-                           border border-gray-200 z-10 w-max pt-2
-                           left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0" // Центрирование на мобилке
-              >
-                <Link
-                  href={`/${lang}`}
-                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-500 hover:text-white transition-colors"
+              {/* 6. Показываем меню, если isServicesOpen === true */}
+              {isServicesOpen && (
+                <div
+                  className="absolute bg-white shadow-lg rounded-md 
+                             border border-gray-200 z-10 w-max pt-2
+                             left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0"
                 >
-                  {dictionary.services_dropdown.painting}
-                </Link>
-                <Link
-                  href={`/${lang}/services/sandblasting-repair`}
-                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-500 hover:text-white transition-colors"
-                >
-                  {dictionary.services_dropdown.sandblasting}
-                </Link>
-              </div>
+                  {/* Мы также добавили главную ссылку /services сюда,
+                      чтобы по ней можно было перейти, если меню открыто. */}
+                  <Link
+                    href={`/${lang}/services`}
+                    onClick={() => setIsServicesOpen(false)} // Закрыть меню при клике
+                    className="block px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-purple-500 hover:text-white transition-colors"
+                  >
+                    Все Услуги (главная)
+                  </Link>
+                  <Link
+                    href={`/${lang}`}
+                    onClick={() => setIsServicesOpen(false)} // Закрыть меню при клике
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-500 hover:text-white transition-colors"
+                  >
+                    {dictionary.services_dropdown.painting}
+                  </Link>
+                  <Link
+                    href={`/${lang}/services/sandblasting-repair`}
+                    onClick={() => setIsServicesOpen(false)} // Закрыть меню при клике
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-500 hover:text-white transition-colors"
+                  >
+                    {dictionary.services_dropdown.sandblasting}
+                  </Link>
+                </div>
+              )}
             </div>
 
             <Link
@@ -92,7 +105,7 @@ export default function Header({ dictionary, lang }) {
             </Link>
           </div>
 
-          <LanguageSwitcher lang={lang} />
+          <LanguageSwitcher />
 
           {/* Контакты */}
           <div className="flex items-center space-x-4">
