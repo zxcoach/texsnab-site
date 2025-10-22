@@ -21,53 +21,65 @@ const ChevronDownIcon = () => (
   </svg>
 );
 
-// 1. Компонент теперь принимает 'dictionary' и 'lang'
+// 1. Header НЕ нужно делать "use client",
+//    мы решим всё через CSS (Tailwind)
 export default function Header({ dictionary, lang }) {
   return (
     <header className="bg-white border-b border-gray-200 shadow-sm">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center flex-wrap gap-4">
+      {/* 2. ИСПРАВЛЕНИЕ "КРИВИЗНЫ":
+          flex-col (по умолчанию - мобилка, всё в столбик)
+          lg:flex-row (на десктопе - в ряд)
+          lg:justify-between (на десктопе - раскидать по краям)
+      */}
+      <nav className="container mx-auto px-4 py-4 flex flex-col lg:flex-row lg:justify-between items-center gap-4">
         {/* Блок 1: Логотип */}
         <div className="flex-shrink-0">
-          {/* 2. Используем 'lang' в ссылке */}
           <Link
             href={`/${lang}`}
             className="text-2xl font-bold text-gray-800 hover:text-purple-700"
           >
-            {/* 3. Используем 'dictionary' для текста */}
             {dictionary.logo}
           </Link>
         </div>
 
-        {/* Блок 2: Меню и Контакты */}
-        <div className="flex items-center flex-wrap justify-end gap-x-6 gap-y-2">
+        {/* Блок 2: Меню и Контакты 
+            Тоже стакаются (flex-col) и выстраиваются в ряд (lg:flex-row)
+        */}
+        <div className="flex flex-col lg:flex-row items-center gap-x-6 gap-y-4">
           {/* Навигация */}
           <div className="flex items-center space-x-6">
-            {/* ВЫПАДАЮЩЕЕ МЕНЮ "УСЛУГИ" */}
+            {/* ВЫПАДАЮЩЕЕ МЕНЮ "УСЛУГИ" (с фиксом хитбокса) */}
             <div className="relative group py-2 my-[-0.5rem]">
               <Link
                 href={`/${lang}/services`}
                 className="text-lg text-gray-600 hover:text-black font-medium flex items-center"
               >
-                {dictionary.services} {/* 3. Используем 'dictionary' */}
+                {dictionary.services}
                 <ChevronDownIcon />
               </Link>
+
+              {/* 3. ИСПРАВЛЕНИЕ "НАЖАТИЯ":
+                  Добавляем 'focus-within:block'.
+                  Меню покажется при hover (group-hover)
+                  ИЛИ при "нажатии" (focus-within)
+              */}
               <div
-                className="absolute hidden group-hover:block bg-white shadow-lg rounded-md 
-                           border border-gray-200 z-10 w-max pt-2"
+                className="absolute hidden group-hover:block focus-within:block 
+                           bg-white shadow-lg rounded-md 
+                           border border-gray-200 z-10 w-max pt-2
+                           left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0" // Центрирование на мобилке
               >
                 <Link
-                  href={`/${lang}`} // 2. Используем 'lang'
+                  href={`/${lang}`}
                   className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-500 hover:text-white transition-colors"
                 >
-                  {dictionary.services_dropdown.painting}{" "}
-                  {/* 3. Используем 'dictionary' */}
+                  {dictionary.services_dropdown.painting}
                 </Link>
                 <Link
-                  href={`/${lang}/services/sandblasting-repair`} // 2. Используем 'lang'
+                  href={`/${lang}/services/sandblasting-repair`}
                   className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-500 hover:text-white transition-colors"
                 >
-                  {dictionary.services_dropdown.sandblasting}{" "}
-                  {/* 3. Используем 'dictionary' */}
+                  {dictionary.services_dropdown.sandblasting}
                 </Link>
               </div>
             </div>
@@ -76,11 +88,10 @@ export default function Header({ dictionary, lang }) {
               href={`/${lang}/contacts`}
               className="text-lg text-gray-600 hover:text-black font-medium"
             >
-              {dictionary.contacts} {/* 3. Используем 'dictionary' */}
+              {dictionary.contacts}
             </Link>
           </div>
 
-          {/* 4. Передаем 'lang' в переключатель */}
           <LanguageSwitcher lang={lang} />
 
           {/* Контакты */}
