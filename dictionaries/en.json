@@ -1,0 +1,93 @@
+{
+  "header": {
+    "logo": "TechSnab",
+    "services": "Services",
+    "contacts": "Contacts",
+    "services_dropdown": {
+      "painting": "Painting Equipment Repair",
+      "sandblasting": "Sandblasting Equipment Repair"
+    }
+  },
+  "footer": {
+    "copyright": "TechSnab. All rights reserved.",
+    "address_label": "Address:"
+  },
+  "breadcrumbs": {
+    "main": "Home",
+    "services": "Services",
+    "contacts": "Contacts",
+    "painting": "Painting Equipment Repair",
+    "sandblasting": "Sandblasting Equipment Repair"
+  },
+  "home_page": {
+    "title": "Painting Equipment Repair",
+    "intro": "Service Center IP TECHSNAB is a certified center for the repair and maintenance of Wiwa painting equipment in the Republic of Kazakhstan. Our specialists, who have completed mandatory training at the WIWA Wilhelm Wagner GmbH & Co. factory in Germany, provide service and warranty maintenance for all models of painting equipment.",
+    "services_title": "Service Center Services:",
+    "services_list": [
+      "Technological consultation from professional and competent specialists",
+      "Full diagnostics of equipment serviceability",
+      "Selection of consumables and spare parts",
+      "Technical maintenance and cleaning of equipment",
+      "Recommendations for further maintenance and use",
+      "Fulfillment of warranty obligations"
+    ],
+    "workshop_intro": "Our own authorized workshop for painting equipment repair allows us to maintain a large stock of necessary spare parts. A constant warehouse reserve of consumables in our specialized service center helps to carry out repairs almost 'same day'. If necessary, our specialists will diagnose and repair painting equipment from other manufacturers and brands.",
+    "warranty_intro_1": "The warranty period for Wiwa equipment, set by the official manufacturer, is 12 months. However, if the operating rules described in the User Manual are not followed, free warranty service is not provided. Therefore, it is strongly recommended to read all points of the Manual and the rules for using the purchased painting equipment.",
+    "warranty_intro_2": "Wiwa warranty service is provided only upon presentation of the warranty card and the original purchase receipt by the client.",
+    "warranty_void_title": "Warranty service is not provided:",
+    "warranty_void_list": [
+      "if contamination is detected due to improper washing, cleaning, or lubrication of the equipment;",
+      "if the equipment is opened or disassembled by a person who is not a representative of the service center;",
+      "in case of improper use and care of the equipment;",
+      "if damaged during transportation carried out by the client;",
+      "if low-quality paint materials are used during spraying with the equipment;",
+      "if seals, stickers, or tags are missing or damaged."
+    ],
+    "recommendation": "To avoid unpleasant situations, it is strongly recommended to learn all the nuances of working with the purchased equipment, and also to thoroughly clean the painting equipment after each use. Careful care of the devices and accessories is the key to a long service life of the painting equipment.",
+    "outro_1": "Service Center IP Techsnab - guarantees high-quality repairs and compliance with all obligations.",
+    "outro_2": "Exclusive official dealer and service center of Wiwa in the Republic of Kazakhstan."
+  },
+  "sandblasting_page": {
+    "title": "Sandblasting Equipment Repair",
+    "intro": "The \"TechSnab\" company provides professional repair and maintenance services for sandblasting (abrasive blasting) equipment of all types - injector and pressure. We work with all leading manufacturers.",
+    "repair_title": "What's included in the repair:",
+    "repair_list": [
+      "Full diagnostics of malfunctions and defect analysis",
+      "Replacement and selection of abrasive blasting nozzles (boron carbide, tungsten)",
+      "Repair and replacement of metering valves (KPD, KP)",
+      "Replacement of sandblasting hoses, fittings, and quick-release couplings",
+      "Repair of remote control systems (RC) and air supply valves",
+      "Cleaning and replacement of moisture-oil separator filters"
+    ],
+    "warning_title": "Important to know",
+    "warning_text": "Timely replacement of consumables (especially nozzles) and the use of high-quality, sifted, and dry abrasive significantly extend the life of the equipment and save you money on costly repairs."
+  },
+  "services_page": {
+    "title": "Our Services",
+    "intro": "Service Center \"TechSnab\" offers a full range of diagnostics, repair, and maintenance services for Wiwa painting equipment and other leading manufacturers.",
+    "directions_title": "Main directions:",
+    "directions_list": [
+      "Full diagnostics of equipment serviceability",
+      "Technological consultation from certified specialists",
+      "Repair of painting equipment of any complexity",
+      "Technical maintenance, cleaning, and calibration",
+      "Selection and supply of original spare parts and consumables",
+      "Warranty and post-warranty service",
+      "Training of personnel on equipment operation rules"
+    ],
+    "why_us_title": "Why choose us?",
+    "why_us_text": "Our team consists of certified engineers trained at manufacturing plants in Germany. We use only original components and provide an official warranty for all types of work performed."
+  },
+  "contacts_page": {
+    "title": "Contacts",
+    "intro": "Contact us in any convenient way for a consultation or to call a technician. We are always ready to help!",
+    "phone_label": "Phone:",
+    "phone_subtext": "For consultations and technician requests",
+    "email_label": "Email:",
+    "email_subtext": "For requests and documents",
+    "address_label": "Service center address:",
+    "hours_label": "Working hours:",
+    "hours_weekdays": "Mon-Fri: 09:00 - 18:00",
+    "hours_weekends": "Sat, Sun: Closed"
+  }
+}
