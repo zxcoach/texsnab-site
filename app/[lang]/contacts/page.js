@@ -120,10 +120,10 @@ export default async function ContactsPage({ params }) {
                 {t.phone_label}
               </h2>
               <a
-                href="tel:+77015220052"
+                href="tel:+77015882425"
                 className="text-lg text-purple-600 hover:underline"
               >
-                +7 (701) 522-00-52
+                +7 (701) 588-24-25
               </a>
               <p className="text-sm text-gray-500">{t.phone_subtext}</p>
             </div>

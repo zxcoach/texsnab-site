@@ -110,10 +110,10 @@ export default function Header({ dictionary, lang }) {
           {/* Контакты */}
           <div className="flex items-center space-x-4">
             <a
-              href="tel:+77015220052"
+              href="tel:+77015882425"
               className="px-4 py-2 border border-purple-600 text-purple-600 rounded-md text-sm font-medium hover:bg-purple-600 hover:text-white transition-colors"
             >
-              +7 (701) 522-00-52
+              +7 (701) 588-24-25
             </a>
           </div>
         </div>
