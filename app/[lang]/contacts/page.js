@@ -137,10 +137,10 @@ export default async function ContactsPage({ params }) {
                 {t.email_label}
               </h2>
               <a
-                href="mailto:techsnaboffical@gmail.com"
+                href="mailto:texsnabkz@gmail.com"
                 className="text-lg text-purple-600 hover:underline"
               >
-                techsnaboffical@gmail.com
+                texsnabkz@gmail.com
               </a>
               <p className="text-sm text-gray-500">{t.email_subtext}</p>
             </div>
